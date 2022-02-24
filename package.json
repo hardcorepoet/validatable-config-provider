@@ -1,0 +1,37 @@
+{
+  "name": "validatable-config-provider",
+  "version": "1.0.0",
+  "description": "NodeJS class-based application configuration provider",
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_CONFIG_DIR=tests/config jest --verbose --runInBand --passWithNoTests"
+  },
+  "author": "Andrei Ivanov",
+  "license": "ISC",
+  "jest": {
+    "transform": {
+      "^.+\\.(t|j)sx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|tests|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json"
+    ],
+    "reporters": [
+      "default"
+    ]
+  },
+  "devDependencies": {
+    "@types/config": "0.0.40",
+    "@types/jest": "^27.0.3",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.13.2",
+    "config": "^3.3.7",
+    "jest": "^27.4.5",
+    "ts-jest": "^27.1.2",
+    "typescript": "^4.5.4"
+  }
+}
