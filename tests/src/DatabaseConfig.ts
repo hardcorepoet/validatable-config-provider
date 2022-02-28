@@ -6,4 +6,8 @@ export class DatabaseConfig {
 
   @IsNumber()
   port: number;
+
+  buildConnectionString() {
+    return `${this.host}:${this.port}`
+  }
 }

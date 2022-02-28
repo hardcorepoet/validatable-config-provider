@@ -1,14 +1,14 @@
-import * as config from 'config';
-import { ValidatableConfigProviderBase } from '../../src/index';
 import { ValidatableConfigProviderBuilder } from '../../src/ValidatableConfigProviderBuilder';
 import { DatabaseConfig } from './DatabaseConfig';
 import { DbConfigWithBadValue } from './DbConfigWithBadValue';
 const configurationData = require('../config/test.json');
 
+const sectionName = 'db';
+
 describe('', () => {
   it('should return configuration section if it exists in configuration files', () => {
     const provider = ValidatableConfigProviderBuilder.getInstance();
-    const actual = provider.getSection(DatabaseConfig, 'db');
+    const actual = provider.getSection(DatabaseConfig, sectionName);
 
     expect(actual).toBeDefined();
     expect(actual).toBeInstanceOf(DatabaseConfig);
@@ -17,9 +17,20 @@ describe('', () => {
   });
 
   it('should throw error when validation fails', () => {
-    const provider = new ValidatableConfigProviderBase(config);
+    const provider = ValidatableConfigProviderBuilder.getInstance();
     expect(() =>
-      provider.getSection(DbConfigWithBadValue, 'db')
+      provider.getSection(DbConfigWithBadValue, sectionName)
     ).toThrowError();
   });
+
+  it('should execute instance method of configuration class if configuration exists', () => {
+    const provider = ValidatableConfigProviderBuilder.getInstance();
+
+    const configurationSection = provider.getSection(DatabaseConfig, sectionName);
+
+    const expected = `${configurationData.db.host}:${configurationData.db.port}`;
+    const actual = configurationSection.buildConnectionString();
+
+    expect(actual).toBe(expected);
+  })
 });

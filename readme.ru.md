@@ -8,8 +8,11 @@
 
 ## Пример
 
+Смотри [тесты](./tests/src//ValidatableConfigProviderImpl.tests.ts)
+
 ```ts
 import { IsNumber, IsString } from 'class-validator';
+import { ValidatableConfigProviderBuilder } from 'validatable-config-provider'
 
 export class DatabaseConfig {
   @IsString()
@@ -19,5 +22,9 @@ export class DatabaseConfig {
   port: number;
 }
 
+const provider = ValidatableConfigProviderBuilder.getInstance();
 
+const dbConfig = provider.getSection('db');
+
+console.log(dbConfig.port);
 ```

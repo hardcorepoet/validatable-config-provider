@@ -1,4 +1,4 @@
-# Class-based validatable config provider for NodeJS 
+# Class-based validatable config provider for NodeJS
 
 ## Usage
 
@@ -8,9 +8,11 @@
 
 ## Example
 
+See [base provder tests](./tests/src//ValidatableConfigProviderImpl.tests.ts)
+
 ```ts
 import { IsNumber, IsString } from 'class-validator';
-import * as config from 'config'
+import { ValidatableConfigProviderBuilder } from 'validatable-config-provider'
 
 export class DatabaseConfig {
   @IsString()
@@ -20,5 +22,9 @@ export class DatabaseConfig {
   port: number;
 }
 
+const provider = ValidatableConfigProviderBuilder.getInstance();
 
+const dbConfig = provider.getSection('db');
+
+console.log(dbConfig.port);
 ```
