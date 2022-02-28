@@ -1,5 +1,6 @@
 # Модуль конфигурирования приложения с валидацией
 
+[![npm version](https://badge.fury.io/js/validatable-config-provider.svg)](https://badge.fury.io/js/validatable-config-provider)
 ## Использование
 
 * Создать конфигурацию в папке config приложения (см. [node-config](https://www.npmjs.com/package/config))

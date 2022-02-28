@@ -1,5 +1,6 @@
 # Class-based validatable config provider for NodeJS
 
+[![npm version](https://badge.fury.io/js/validatable-config-provider.svg)](https://badge.fury.io/js/validatable-config-provider)
 ## Usage
 
 - Create configuration structure in your config directory (see [node-config](https://www.npmjs.com/package/config))
