@@ -1,12 +1,18 @@
 {
   "name": "validatable-config-provider",
-  "version": "0.1.0",
+  "version": "0.4.1",
   "description": "NodeJS class-based application configuration provider",
   "scripts": {
-    "test": "NODE_CONFIG_DIR=tests/config jest --verbose --runInBand --passWithNoTests"
+    "test": "NODE_CONFIG_DIR=tests/config jest --verbose --runInBand --passWithNoTests",
+    "clean": "rm -rf dist",
+    "build": "npm run clean && NODE_ENV=production tsc",
+    "bump:minor": "npm run build && npm version minor",
+    "bump:patch": "npm run build && npm version patch"
   },
   "author": "Andrei Ivanov <mail@andreyivanov.pro>",
   "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/hardcorepoet/validatable-config-provider.git"
@@ -37,7 +43,9 @@
     "@types/jest": "27.0.3",
     "jest": "27.4.5",
     "ts-jest": "27.1.2",
-    "typescript": "4.5.4"
+    "typescript": "4.5.4",
+    "@nestjs/common": ">=6.0.0",
+    "config": ">=3.3.7"
   },
   "peerDependencies": {
     "@nestjs/common": ">=6.0.0",

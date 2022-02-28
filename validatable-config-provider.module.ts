@@ -1,17 +1,17 @@
 import { DynamicModule, Module } from '@nestjs/common';
 import {
   ValidatableConfigProvider,
-  ValidatableConfigProviderBase,
   ValidatableConfigProviderBuilder,
 } from './src';
 import { ConfigurationObject } from './src/ConfigurationObject';
+import { ValidatableConfigProviderBase } from './src/ValidatableConfigProviderBase';
 
 @Module({})
 export class ValidatableConfigProviderModule {
   /** Registers configuration provider module
    * @param  {config.IConfig} config? optional configuration object
    */
-  forRoot(config?: ConfigurationObject): DynamicModule {
+  static forRoot(config?: ConfigurationObject): DynamicModule {
     const configInstance = config
       ? new ValidatableConfigProviderBase(config)
       : ValidatableConfigProviderBuilder.getInstance();

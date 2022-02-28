@@ -1,6 +1,6 @@
 import { plainToClass } from 'class-transformer';
 import { validateSync } from 'class-validator';
-import { IConfig, util } from 'config';
+import { util } from 'config';
 import { ConfigurationObject } from './ConfigurationObject';
 import {
   ClassCtor,
@@ -10,7 +10,7 @@ import {
 export class ValidatableConfigProviderBase extends ValidatableConfigProvider {
   private readonly _config: ConfigurationObject;
 
-  constructor(config: IConfig) {
+  constructor(config: ConfigurationObject) {
     super();
     this._config = config;
   }
