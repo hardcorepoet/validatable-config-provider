@@ -1,6 +1,7 @@
 # Class-based validatable config provider for NodeJS
 
 [![npm version](https://badge.fury.io/js/validatable-config-provider.svg)](https://badge.fury.io/js/validatable-config-provider)
+
 ## Usage
 
 - Create configuration structure in your config directory (see [node-config](https://www.npmjs.com/package/config))
@@ -9,7 +10,7 @@
 
 ## Example
 
-See [base provider tests](./tests/src//ValidatableConfigProviderImpl.tests.ts)
+See [base provider tests](./tests/src/ValidatableConfigProviderImpl.tests.ts)
 
 ```ts
 import { IsNumber, IsString } from 'class-validator';
@@ -25,7 +26,9 @@ export class DatabaseConfig {
 
 const provider = ValidatableConfigProviderBuilder.getInstance();
 
-const dbConfig = provider.getSection('db');
+const dbConfig = provider.getSection<DatabaseConfig>(DatabaseConfig, 'db');
 
 console.log(dbConfig.port);
 ```
+
+[Module for NestJS](./validatable-config-provider.module.ts) is also bundled with this package

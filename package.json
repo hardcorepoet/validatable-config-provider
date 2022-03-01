@@ -2,6 +2,16 @@
   "name": "validatable-config-provider",
   "version": "0.4.1",
   "description": "NodeJS class-based application configuration provider",
+  "keywords": [
+    "NestJS",
+    "NodeJS",
+    "config",
+    "configuration",
+    "nodejs-configuration",
+    "validation",
+    "class-based",
+    "typescript"
+  ],
   "scripts": {
     "test": "NODE_CONFIG_DIR=tests/config jest --verbose --runInBand --passWithNoTests",
     "clean": "rm -rf dist",

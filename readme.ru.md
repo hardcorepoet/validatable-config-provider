@@ -25,7 +25,9 @@ export class DatabaseConfig {
 
 const provider = ValidatableConfigProviderBuilder.getInstance();
 
-const dbConfig = provider.getSection('db');
+const dbConfig = provider.getSection<DatabaseConfig>(DatabaseConfig, 'db');
 
 console.log(dbConfig.port);
 ```
+
+Также доступен [модуль для NestJS](./validatable-config-provider.module.ts)
