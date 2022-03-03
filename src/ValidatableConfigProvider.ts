@@ -3,8 +3,7 @@ export type ClassCtor<T> = {
 };
 
 export abstract class ValidatableConfigProvider {
-
-    /** Get deserialized config section
+  /** Gets deserialized config section
    * @param  {ClassCtor<T>} cls class constructor representing configuration section
    * @param  {string} configPath path to section config
    * @returns T
@@ -14,4 +13,11 @@ export abstract class ValidatableConfigProvider {
     cls: ClassCtor<T>,
     configPath: string
   ): T;
+
+  /** Gets plain value for configuration path
+   * @param  {string} configPath path to section config
+   * @returns any
+   * @throws will throw an error if config does not exist
+   */
+  abstract getPlainValue(configPath: string): any;
 }

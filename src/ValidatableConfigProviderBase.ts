@@ -15,12 +15,6 @@ export class ValidatableConfigProviderBase extends ValidatableConfigProvider {
     this._config = config;
   }
 
-  /** Get deserialized config section
-   * @param  {ClassCtor<T>} cls class constructor representing configuration section
-   * @param  {string} configPath path to section config
-   * @returns T
-   * @throws will throw an error if config does not exist or if it fails validation
-   */
   getSection<T extends object>(cls: ClassCtor<T>, configPath: string): T {
     const obj = util.toObject(this._config.get(configPath));
 
@@ -41,5 +35,11 @@ export class ValidatableConfigProviderBase extends ValidatableConfigProvider {
     }
 
     return transformedConfig;
+  }
+
+  getPlainValue(configPath: string): any {
+    const config = this._config.get(configPath);
+
+    return config;
   }
 }

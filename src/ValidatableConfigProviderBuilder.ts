@@ -10,7 +10,7 @@ export class ValidatableConfigProviderBuilder {
 
       configProvider = new ValidatableConfigProviderBase(config);
     }
-    
+
     return configProvider;
   }
 }
